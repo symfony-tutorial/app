@@ -16,8 +16,7 @@ monolog:
         main:
             type:   stream
             path:   "%kernel.logs_dir%/%kernel.environment%.log"
-            level:  info
-            channels: ["json_rpc", "app"]
+            level:  debug
             formatter: monolog.formatter.logstash
         console:
             type:   console

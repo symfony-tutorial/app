@@ -31,6 +31,8 @@ class ProductFixtures extends AbstractDataFixture implements ContainerAwareInter
     {
         foreach ($this->getReferences('category') as $category) {
             $this->createAndPersistProducts($category);
+            $this->manager->flush();
+            $this->manager->clear();
         }
     }
 

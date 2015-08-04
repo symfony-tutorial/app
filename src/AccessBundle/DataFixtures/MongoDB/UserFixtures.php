@@ -21,7 +21,7 @@ class UserFixtures extends AbstractFixture
         array('username' => 'api_order', 'password' => 'pass',
             'roles' => array('ROLE_API', 'ROLE_API_ORDER')),
         array('username' => 'api_all', 'password' => 'pass',
-            'roles' => array('ROLE_API', 'ROLE_API_ORDER', 'ROLE_API_WAREHOUSE')),
+            'roles' => array('ROLE_API', 'ROLE_API_ORDER', 'ROLE_API_WAREHOUSE', 'ROLE_API_CATALOG')),
     );
 
     public function load(ObjectManager $manager) {
