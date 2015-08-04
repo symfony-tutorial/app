@@ -28,6 +28,7 @@ services:
     app.email:
         class: AppBundle\Service\Communication\EmailService
         public: false
+        arguments: [@app.util, %maximum_emails_per_second%]
         calls:
             - ["addProvider", [@app.provider_email_external]] 
     app.communication:
@@ -44,4 +45,8 @@ services:
         parent: app.doctrine_aware
     app.util:
         class: AppBundle\Service\UtilService
-        arguments: [@doctrine, @logger]
+        arguments: [@doctrine, @logger, @memcached]
+    memcached:
+        class: Memcached
+        calls:
+            - [ addServers, [ %memcached.servers% ]]

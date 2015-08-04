@@ -21,3 +21,6 @@ parameters:
     fixtures:
         products_per_category: 5
     communication.external_provider_host: http://symfony.local
+    memcached.servers:
+      - { host: 127.0.0.1, port: 11211 }
+    maximum_emails_per_second: 1
