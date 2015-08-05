@@ -17,7 +17,6 @@ monolog:
             type:   stream
             path:   "%kernel.logs_dir%/%kernel.environment%.log"
             level:  info
-            channels: ["app"]
             formatter: monolog.formatter.logstash
         console:
             type:  console

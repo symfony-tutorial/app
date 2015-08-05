@@ -17,14 +17,18 @@ services:
             - ["setUtilService", [@app.util]] 
     app.catalog:
         class: AppBundle\Service\CatalogService
-        parent: app.doctrine_aware        
+        parent: app.doctrine_aware 
+        tags:
+            - {name: json_rpc.service, method: getCategories}
+            - {name: json_rpc.service, method: getProductSales}      
     app.order:
         class: AppBundle\Service\OrderService
         parent: app.doctrine_aware
         tags:
             - {name: json_rpc.service, method: createOrder}            
     order: @app.order    
-    warehouse: @app.warehouse    
+    warehouse: @app.warehouse
+    catalog: @app.catalog
     app.email:
         class: AppBundle\Service\Communication\EmailService
         public: false
