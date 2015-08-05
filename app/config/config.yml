@@ -71,3 +71,10 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+            
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
