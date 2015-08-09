@@ -2,6 +2,9 @@ services:
     access.user_provider:
         class: AccessBundle\UserProvider
         arguments: [@doctrine_mongodb]
+        tags:
+            - {name: json_rpc.service, method: loadUserByUsername} 
+    access: @access.user_provider
     access.user:
         class: AccessBundle\UserService
         arguments: [@doctrine_mongodb]

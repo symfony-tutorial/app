@@ -53,7 +53,7 @@ class AdminController extends Controller
         $action = $request->get('oper');
         $username = $request->get('username');
         $password = $request->get('password');
-        $roles = explode(',', $request->get('roles'));
+        $roles = explode(',', str_replace(' ', '', $request->get('roles')));
         if ($action === 'add') {
             $userService->create($username, $password, $roles);
         }
