@@ -18,7 +18,7 @@ class CategoryFixtures extends AbstractDataFixture
         'books' => array('textbooks', 'magazines', 'e-books', 'audible books'),
         'sports' => array('tennis', 'footbal', 'fitness', 'athletic clothing', 'golf'),
         'outdoor' => array('hunting', 'fishing', 'hiking', 'biking'),
-        'alcoholic drinks' => array('beer', 'wine', 'string alcohols'),
+        'alcoholic drinks' => array('beer', 'wine', 'strong alcohols'),
         'water' => array('sparkling', 'non sparkling'),
         'tea' => array(),
         'juice' => array(),
