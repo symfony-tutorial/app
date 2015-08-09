@@ -36,11 +36,12 @@ class ServerController extends Controller
         }
         $result = $server->handle($requestContent, $service);
         $result = $result->toArray();
+        //var_dump($result);
         $result = $serializer->serialize($result, 'json');
         $redis->set($cacheKey, $result);
         $logger->addInfo('response', array('content' => $result));
 
-        return new Response($serializer->serialize($result, 'json'));
+        return new Response($result);
     }
 
 }

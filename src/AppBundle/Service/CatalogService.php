@@ -15,8 +15,12 @@ class CatalogService extends AbstractDoctrineAware
     public function getCategories()
     {
         return $this->entityManager
-                        ->getRepository(Category::REPOSITORY)
-                        ->findAll();
+        ->createQueryBuilder()
+        ->select('category.id, category.label, parent.id as parent_id, parent.label as parent_label')
+        ->from(Category::REPOSITORY, 'category')
+        ->leftJoin('category.parentCategory', 'parent')
+        ->getQuery()
+        ->getResult();
     }
 
     public function getProductSales() {
