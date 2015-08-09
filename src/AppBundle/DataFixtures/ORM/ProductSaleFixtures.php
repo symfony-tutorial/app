@@ -7,9 +7,10 @@ use AppBundle\Entity\ProductSale;
 class ProductSaleFixtures extends AbstractDataFixture
 {
 
-    protected function createAndPersistData()
-    {
+    protected function createAndPersistData() {
+        $index = 0;
         foreach ($this->getReferences('product') as $product) {
+            $index++;
             $productSale = new ProductSale();
             $productSale->setProduct($product)->setActive(rand(0, 1));
             $productSale->setPrice(rand(100, 10000));
@@ -21,11 +22,14 @@ class ProductSaleFixtures extends AbstractDataFixture
             $productSale->setStartDate($startDate);
             $productSale->setEndDate($endDate);
             $this->manager->persist($productSale);
+            if($index % 500 ===0){
+                $this->manager->flush();
+                $this->manager->clear();
+            }
         }
     }
 
-    public function getOrder()
-    {
+    public function getOrder() {
         return 3;
     }
 

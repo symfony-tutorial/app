@@ -19,7 +19,7 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     fixtures:
-        products_per_category: 2000
+        products_per_category: 1000
     communication.external_provider_host: http://symfony.local
     memcached.servers:
       - { host: 127.0.0.1, port: 11211 }

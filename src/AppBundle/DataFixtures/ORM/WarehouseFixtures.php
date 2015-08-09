@@ -9,7 +9,7 @@ class WarehouseFixtures extends AbstractDataFixture
 
     protected function createAndPersistData()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $warehouse = new Warehouse();
             $warehouse->setName(sprintf('warehouse_%s', $i));
             $warehouse->setAddress(sprintf('warehouse address %s', $i));

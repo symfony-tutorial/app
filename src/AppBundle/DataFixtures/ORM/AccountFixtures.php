@@ -7,7 +7,7 @@ use AppBundle\Entity\Account;
 class AccountFixtures extends AbstractDataFixture
 {
 
-    const ACCOUNTS_COUNT = 10;
+    const ACCOUNTS_COUNT = 5000;
 
     protected function createAndPersistData()
     {

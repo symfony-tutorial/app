@@ -7,7 +7,7 @@ use AppBundle\Entity\Contact;
 class ContactFixtures extends AbstractDataFixture
 {
 
-    const CONTACTS_COUNT = 10;
+    const CONTACTS_COUNT = 5000;
 
     protected function createAndPersistData()
     {

@@ -23,15 +23,17 @@ class ServerController extends Controller
             throw $this->createAccessDeniedException('Access denied');
         }
 
-        $cacheKey = base64_encode($service . $requestContent);
+        $cacheKey = base64_encode($service . $requestContent);        
         $redis = $this->get('snc_redis.default');
         if ($redis->exists($cacheKey)) {
-            return new JsonResponse(unserialize($redis->get($cacheKey)));
+            $result = unserialize($redis->get($cacheKey));
+            $logger->addInfo('response', array('content' => $result));
+            return new JsonResponse($result);
         }
         $result = $server->handle($requestContent, $service);
         $result = $result->toArray();
         $redis->set($cacheKey, serialize($result));
-        $logger->addInfo('response', array('result' => $result));
+        $logger->addInfo('response', array('content' => $result));
         return new JsonResponse($result);
     }
 

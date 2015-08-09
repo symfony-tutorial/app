@@ -9,7 +9,7 @@ class VendorFixtures extends AbstractDataFixture
 
     protected function createAndPersistData()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 1000; $i++) {
             $vendor = new Vendor();
             $vendor->setName(sprintf('vendor_%s', $i));
             $this->manager->persist($vendor);
