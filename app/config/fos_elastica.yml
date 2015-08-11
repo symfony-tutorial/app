@@ -1,0 +1,22 @@
+fos_elastica:
+    clients:
+        default: { host: %elasticsearch.host%, port: 9200 }
+    indexes:
+        products:
+            index_name: products
+            types:
+                products:
+                    mappings:                                
+                        code: {type: string}
+                        title: {type:string}
+                        description: {type:string}
+                        price: {type:integer}
+                        categoryId: {type:integer}
+                        category: {type:string}
+                        stock: {type:integer}
+                    persistence:                            
+                        driver: orm
+                        model: AppBundle\Entity\ProductSaleView
+                        provider:
+                            batch_size: 5000
+                        finder: ~

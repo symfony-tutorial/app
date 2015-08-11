@@ -6,6 +6,7 @@ imports:
     - { resource: dashboard.yml }
     - { resource: doctrine_mongodb.yml }
     - { resource: rabbitmq.yml }
+    - { resource: fos_elastica.yml }
 
 framework:
     #esi:             ~
