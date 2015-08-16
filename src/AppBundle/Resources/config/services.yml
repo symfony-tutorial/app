@@ -54,3 +54,8 @@ services:
         class: Memcached
         calls:
             - [ addServers, [ %memcached.servers% ]]
+    app.translator:
+        class: AppBundle\Service\Translator
+        decorates: translator.default
+        arguments: ["@app.translator.inner"]
+        public: false

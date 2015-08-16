@@ -2,3 +2,16 @@ confirmation:
     text: Thank you %customerName%, your order number %orderNumber% is being processed.
     subject: Order confirmation
     from: orders@site.com
+    
+default_newsletter_sender: newsletter@site.com
+newsletter_christmas:
+    subject: Merry christmas %customer_name%
+    from: @default_newsletter_sender
+
+newsletter_new_year:
+    subject: Happy new year %customer_name%
+    from: @default_newsletter_sender
+
+newsletter_summer_vacation:
+    subject: Are you ready for vacations %customer_name%?
+    from: @default_newsletter_sender
