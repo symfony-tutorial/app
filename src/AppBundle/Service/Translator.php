@@ -2,9 +2,10 @@
 
 namespace AppBundle\Service;
 
+use Symfony\Component\Translation\TranslatorBagInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class Translator implements TranslatorInterface, \Symfony\Component\Translation\TranslatorBagInterface
+class Translator implements TranslatorInterface, TranslatorBagInterface
 {
 
     /**
@@ -20,12 +21,12 @@ class Translator implements TranslatorInterface, \Symfony\Component\Translation\
     public function trans($id, array $parameters = array(), $domain = null, $locale = null) {
         $translated = $this->translator->trans($id, $parameters, $domain, $locale);
         if (strpos($translated, '@') === 0) {
-            $translated = $this->translator->trans(substr($translated, 1), $parameters, $domain, $locale);
+            $id = substr($translated, 1);
+            $translated = $this->translator->trans($id, $parameters, $domain, $locale);
         }
         return $translated;
     }
-    
-    
+
     public function __call($name, $arguments) {
         return call_user_func_array(array($this->translator, $name), $arguments);
     }
@@ -38,7 +39,8 @@ class Translator implements TranslatorInterface, \Symfony\Component\Translation\
         return $this->translator->setLocale($locale);
     }
 
-    public function transChoice($id, $number, array $parameters = array(), $domain = null, $locale = null) {
+    public function transChoice
+    ($id, $number, array $parameters = array(), $domain = null, $locale = null) {
         return $this->translator->transChoice($id, $number, $parameters, $domain, $locale);
     }
 

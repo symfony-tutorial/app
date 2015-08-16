@@ -72,6 +72,11 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+    app.translation.doctrine_loader:
+        class: AppBundle\Translation\DoctrineLoader
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - {name: 'translation.loader', alias: 'doctrine'}
             
 snc_redis:
     clients:
