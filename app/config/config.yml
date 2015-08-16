@@ -68,7 +68,7 @@ services:
         arguments: [@=service('doctrine_mongodb').getConnection().getMongoClient(), {database: session, collection: sessions}]
         public: false
     twig.extension.intl:
-        class: Twig_Extensions_Extension_Intl
+        class: AppBundle\Twig\Extension\Intl
         public: false
         tags:
             - { name: twig.extension }

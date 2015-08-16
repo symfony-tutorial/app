@@ -1,7 +1,7 @@
 <tr>
     <td>{{productLine.code}}</td>
     <td>{{productLine.title}}</td>
-    <td>{{productLine.price}}</td>
+    <td>{{productLine.price|localizedcurrency(currency)}}</td>
     <td>{{productLine.quantity}}</td>
     <td>{{productLine.total|localizedcurrency(currency)}}</td>
 </tr>
