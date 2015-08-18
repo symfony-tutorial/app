@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="country")
  * @ORM\Entity
+ * @ORM\Cache(usage="READ_ONLY", region="app")
  */
 class Country
 {

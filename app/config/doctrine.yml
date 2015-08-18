@@ -18,3 +18,7 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        second_level_cache:
+            regions:
+                app:
+                    cache_driver: redis
